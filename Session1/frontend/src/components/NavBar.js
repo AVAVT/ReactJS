@@ -11,7 +11,7 @@ class NavBar extends Component {
         <div className="container">
           <SearchField />
           <div className="col-6 text-center">
-            <img src={logo} />
+            <img src={logo} alt="TechKids Logo"/>
           </div>
           <ProfilePanel />
         </div>
