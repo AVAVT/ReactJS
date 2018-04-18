@@ -31,7 +31,7 @@ const getAllImages = page =>
         resolve(
           data.map(img =>
             Object.assign({}, img._doc, {
-              imageUrl: `/api/images/${img._doc.id}/data`
+              imageUrl: `/api/images/${img.id}/data`
             })
           )
         );
@@ -74,13 +74,27 @@ const deleteImage = (id, userId) =>
 const getImage = id =>
   new Promise((resolve, reject) => {
     imageModel
-      .findOne({
-        active: true,
-        _id: id
-      })
-      .select("_id title description createdAt view like comment")
-      .populate("createdBy", "username avatarUrl")
-      .exec()
+      .update(
+        {
+          active: true,
+          _id: id
+        },
+        {
+          $inc: {
+            view: 1
+          }
+        }
+      )
+      .then(result =>
+        imageModel
+          .findOne({
+            active: true,
+            _id: id
+          })
+          .select("_id title description createdAt view like comment")
+          .populate("createdBy", "username avatarUrl")
+          .exec()
+      )
       .then(data =>
         resolve(
           Object.assign({}, data._doc, { imageUrl: `/api/images/${id}/data` })
