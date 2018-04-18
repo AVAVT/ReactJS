@@ -1,9 +1,9 @@
 const userModel = require("./model");
 
-const createUser = ({ username, email, password, avatarUrl }) =>
+const createUser = ({ username, email, password }) =>
   new Promise((resolve, reject) => {
     userModel
-      .create({ username, email, password, avatarUrl })
+      .create({ username, email, password })
       .then(user => resolve(user._id))
       .catch(err => reject(err));
   });
@@ -17,9 +17,17 @@ const getAllUsers = page =>
       .sort({ createdAt: -1 })
       .skip((page - 1) * 20)
       .limit(20)
-      .select("_id avatarUrl username email")
+      .select("_id username email")
       .exec()
-      .then(data => resolve(data))
+      .then(data =>
+        resolve(
+          data.map(user =>
+            Object.assign({}, user._doc, {
+              avatarUrl: `/api/users/${user._id}/avatar`
+            })
+          )
+        )
+      )
       .catch(err => reject(err));
   });
 
@@ -30,7 +38,24 @@ const getOneUser = id =>
         active: true,
         _id: id
       })
-      .select("_id avatarUrl username email password")
+      .select("_id username email password")
+      .exec()
+      .then(data =>
+        resolve(
+          Object.assign({}, data._doc, { avatarUrl: `/api/users/${id}/avatar` })
+        )
+      )
+      .catch(err => reject(err));
+  });
+
+const getAvatarData = id =>
+  new Promise((resolve, reject) => {
+    userModel
+      .findOne({
+        active: true,
+        _id: id
+      })
+      .select("avatar contentType")
       .exec()
       .then(data => resolve(data))
       .catch(err => reject(err));
@@ -80,7 +105,7 @@ const updatePassword = (id, password) =>
       .catch(err => reject(err));
   });
 
-const updateAvatarUrl = (id, avatarUrl) =>
+const updateAvatar = (id, avatarFile) =>
   new Promise((resolve, reject) => {
     userModel
       .update(
@@ -88,7 +113,8 @@ const updateAvatarUrl = (id, avatarUrl) =>
           _id: id
         },
         {
-          avatarUrl
+          avatar: fs.readFileSync(avatarFile.path),
+          contentType: avatarFile.mimetype
         }
       )
       .exec()
@@ -121,7 +147,8 @@ module.exports = {
   updateUsername,
   updateEmail,
   updatePassword,
-  updateAvatarUrl,
+  updateAvatar,
   deleteUser,
-  getUserForAuth
+  getUserForAuth,
+  getAvatarData
 };

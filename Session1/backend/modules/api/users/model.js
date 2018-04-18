@@ -18,15 +18,15 @@ const userModel = new Schema(
         message: "{VALUE} is not a valid email address!"
       }
     },
-    avatarUrl: { type: String, default: "" },
+    avatar: { type: Buffer },
+    contentType: { type: String },
     active: { type: Boolean, default: true }
   },
   { timestamps: { createdAt: "createdAt" } }
 );
 
 userModel.pre("save", function(next) {
-  if (!this.isModified("password")) { // TODO bug on update password
-    console.log("Modified");
+  if (!this.isModified("password")) {
     return next();
   }
 

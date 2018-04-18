@@ -1,7 +1,7 @@
 const imageModel = require("./model");
 const fs = require("fs");
 
-const createImage = ({ imagePath, title, description, userId, imageFile }) =>
+const createImage = ({ title, description, userId, imageFile }) =>
   new Promise((resolve, reject) => {
     imageModel
       .create({
@@ -31,7 +31,7 @@ const getAllImages = page =>
         resolve(
           data.map(img =>
             Object.assign({}, img._doc, {
-              imageUrl: `/api/images/${img.id}/data`
+              imageUrl: `/api/images/${img._id}/data`
             })
           )
         );
@@ -39,7 +39,7 @@ const getAllImages = page =>
       .catch(err => reject(err));
   });
 
-const updateImage = (id, { imageUrl, title, description }) =>
+const updateImage = (id, { imageFile, title, description }) =>
   new Promise((resolve, reject) => {
     imageModel
       .update(
@@ -47,10 +47,10 @@ const updateImage = (id, { imageUrl, title, description }) =>
           _id: id
         },
         {
-          imageUrl,
+          image: fs.readFileSync(imageFile.path),
+          contentType: imageFile.mimetype,
           title,
-          description,
-          createdBy
+          description
         }
       )
       .then(data => resolve({ id: data._id }))

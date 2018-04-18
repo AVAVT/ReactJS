@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 const userController = require("./controller");
 const authMiddleware = require("../auth/auth");
@@ -70,9 +72,22 @@ router.put("/:id/email", (req, res) => {
     });
 });
 
-router.put("/:id/avatarUrl", (req, res) => {
+router.get("/:id/avatar", (req, res) => {
   userController
-    .updateUsername(req.params.id, req.body.avatarUrl)
+    .getAvatarData(req.params.id)
+    .then(data => {
+      res.contentType(data.contentType);
+      res.send(data.avatar);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
+
+router.put("/:id/avatar", upload.single("image"), (req, res) => {
+  userController
+    .updateAvatar(req.params.id, req.file)
     .then(id => res.send(id))
     .catch(err => {
       console.error(err);
