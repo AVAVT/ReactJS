@@ -24,10 +24,18 @@ const getAllImages = page =>
       .sort({ createdAt: -1 })
       .skip((page - 1) * 20)
       .limit(20)
-      .select("_id imageUrl title description createdAt view like")
+      .select("_id title description createdAt view like")
       .populate("createdBy", "username avatarUrl")
       .exec()
-      .then(data => resolve(data))
+      .then(data => {
+        resolve(
+          data.map(img =>
+            Object.assign({}, img._doc, {
+              imageUrl: `/api/images/${img._doc.id}/data`
+            })
+          )
+        );
+      })
       .catch(err => reject(err));
   });
 
@@ -74,11 +82,13 @@ const getImage = id =>
       .populate("createdBy", "username avatarUrl")
       .exec()
       .then(data =>
-        resolve(Object.assign(data, { imageUrl: `/api/images/${id}/data` }))
+        resolve(
+          Object.assign({}, data._doc, { imageUrl: `/api/images/${id}/data` })
+        )
       )
       .catch(err => reject(err));
   });
-  
+
 const getImageData = id =>
   new Promise((resolve, reject) => {
     imageModel
