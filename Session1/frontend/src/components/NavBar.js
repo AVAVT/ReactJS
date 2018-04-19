@@ -9,7 +9,7 @@ class NavBar extends Component {
     return (
       <div className="navbar navbar-expand">
         <div className="container">
-          <SearchField />
+          <SearchField onSearchChanged={this.props.onSearchChanged} />
           <div className="col-6 text-center">
             <img src={logo} alt="TechKids Logo" />
           </div>
