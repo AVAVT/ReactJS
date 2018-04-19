@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar onSearchChange={this._onSearchChange}/>
+        <NavBar/>
         <MainContent images={this.state.images} />
       </div>
     );

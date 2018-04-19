@@ -7,11 +7,11 @@ import ProfilePanel from "./ProfilePanel";
 class NavBar extends Component {
   render() {
     return (
-      <div className="navbar">
+      <div className="navbar navbar-expand">
         <div className="container">
           <SearchField />
           <div className="col-6 text-center">
-            <img src={logo} alt="TechKids Logo"/>
+            <img src={logo} alt="TechKids Logo" />
           </div>
           <ProfilePanel />
         </div>
