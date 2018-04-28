@@ -12,12 +12,10 @@ const authRouter = require("./modules/api/auth/router");
 
 app.use((req, res, next) => {
   res.setHeader("X-Frame-Options", "ALLOWALL");
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "POST, GET, PUT, DELETE, OPTIONS"
   );
-  res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Authorization, Origin, X-Requested-With, Content-Type, Accept"
