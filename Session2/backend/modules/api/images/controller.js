@@ -92,6 +92,7 @@ const getImage = id =>
             _id: id
           })
           .select("_id title description createdAt view like comment")
+          .populate("comment.createdBy", "username avatarUrl")
           .populate("createdBy", "username avatarUrl")
           .exec()
       )

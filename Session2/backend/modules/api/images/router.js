@@ -68,7 +68,7 @@ router.delete("/:id", authMiddleware.authorize, (req, res) => {
 });
 
 router.post("/:imageId/comments", authMiddleware.authorize, (req, res) => {
-  req.body.id = req.session.userInfo.id;
+  req.body.userId = req.session.userInfo.id;
 
   imageController
     .addComment(req.params.imageId, req.body)
