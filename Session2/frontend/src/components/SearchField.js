@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class SearchField extends Component {
-  _handleTextChange = event => this.props.onSearchChanged(event.target.value);
+  _handleTextChange = event =>
+    this.props.onSearchChanged &&
+    this.props.onSearchChanged(event.target.value);
 
   render() {
     return (
