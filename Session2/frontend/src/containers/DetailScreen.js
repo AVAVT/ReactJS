@@ -1,0 +1,41 @@
+import React, { Component } from "react";
+import axios from "../axios";
+
+import NavBar from "../components/NavBar";
+import GirlImage from "../components/GirlImage";
+
+class DetailScreen extends Component {
+  state = {};
+
+  componentDidMount() {
+    axios
+      .get("/api/images/5ad7e3f2d67fbe3c1b79cf85")
+      .then(data => {
+        this.setState({
+          image: data.data
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
+  render() {
+    return (
+      <div>
+        <NavBar
+          onSearchChanged={this._onSearchChanged}
+          username={this.props.username}
+          onLogin={this.props.onLogin}
+        />
+        <div className="main_content container">
+          <div className="row">
+            <div className="col-8 mr-auto ml-auto">
+              {this.state.image ? <GirlImage img={this.state.image} /> : ""}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default DetailScreen;

@@ -1,30 +1,14 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
 import axios from "./axios";
 
-import NavBar from "./components/NavBar";
-import MainContent from "./components/MainContent";
+import HomeScreen from "./containers/HomeScreen";
+import DetailScreen from "./containers/DetailScreen";
 
 class App extends Component {
-  state = {
-    images: [],
-    searchString: ""
-  };
-
-  componentDidMount() {
-    axios
-      .get("/api/images")
-      .then(data => {
-        console.log(data.data);
-        this.setState({
-          images: data.data
-        });
-      })
-      .catch(err => console.error(err));
-  }
-
-  _onSearchChanged = text => this.setState({ searchString: text });
+  state = {};
 
   _onLogin = () => {
     axios
@@ -42,20 +26,9 @@ class App extends Component {
   };
 
   render() {
-    const displayedImages = this.state.images.filter(
-      img =>
-        img.title.includes(this.state.searchString) ||
-        img.description.includes(this.state.searchString)
-    );
-
     return (
       <div className="App">
-        <NavBar
-          onSearchChanged={this._onSearchChanged}
-          username={this.state.username}
-          onLogin={this._onLogin}
-        />
-        <MainContent images={displayedImages} />
+        <HomeScreen username={this.state.username} onLogin={this._onLogin} />
       </div>
     );
   }
