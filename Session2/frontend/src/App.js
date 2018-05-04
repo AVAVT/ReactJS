@@ -31,8 +31,27 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route exact path="/" component={HomeScreen} />
-          <Route path="/images/:imageId" component={DetailScreen} />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <HomeScreen
+                {...props}
+                username={this.state.username}
+                onLogin={this._onLogin}
+              />;
+            }}
+          />
+          <Route
+            path="/images/:imageId"
+            render={props => {
+              return <DetailScreen
+                {...props}
+                username={this.state.username}
+                onLogin={this._onLogin}
+              />;
+            }}
+          />
         </div>
       </BrowserRouter>
     );
