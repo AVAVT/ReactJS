@@ -7,6 +7,8 @@ import axios from "./axios";
 import HomeScreen from "./containers/HomeScreen";
 import DetailScreen from "./containers/DetailScreen";
 
+import { BrowserRouter, Route } from "react-router-dom";
+
 class App extends Component {
   state = {};
 
@@ -27,9 +29,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <HomeScreen username={this.state.username} onLogin={this._onLogin} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route exact path="/" component={HomeScreen} />
+          <Route path="/images/:imageId" component={DetailScreen} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

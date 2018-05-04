@@ -9,7 +9,7 @@ class DetailScreen extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/images/5ad7e3f2d67fbe3c1b79cf85")
+      .get(`/api/images/${this.props.match.params.imageId}`)
       .then(data => {
         this.setState({
           image: data.data
