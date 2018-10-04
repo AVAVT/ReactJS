@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px){
+  .container {
+    float: left;
+    width: 60vw; /* viewport width */
+  }
+  .sidebar{
+    float: left;
+    width: 40vw;
+  }
+}
