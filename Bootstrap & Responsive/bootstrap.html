@@ -14,67 +14,99 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-8 col-sm-6 col-md-3 bg-danger">
-        Main content
-      </div>
-      <div class="col-4 col-sm-6 col-md-9 bg-warning">
-        Sidebar
-      </div>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Awesome Club</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
+
   <div class="container">
-    <h1>Hello, world!</h1>
+    <h1 class="text-center mt-5">New Member Registration</h1>
+    <div class="row">
+      <form class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="first-name">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="last-name">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="first-name">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="last-name">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <div><label>Membership Type <span class="text-danger">*</span></label></div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio1" value="standard">
+                <label class="form-check-label" for="inlineRadio1">Standard</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio2" value="medium">
+                <label class="form-check-label" for="inlineRadio2">Medium</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio3" value="ultimate">
+                <label class="form-check-label" for="inlineRadio3">Ultimate</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <div><label>Prefered way to contact <span class="text-danger">*</span></label></div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="membership-type" id="inlineCheckbox1" value="standard">
+                <label class="form-check-label" for="inlineCheckbox1">Phone</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="membership-type" id="inlineCheckbox2" value="medium">
+                <label class="form-check-label" for="inlineCheckbox2">Email</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="membership-type" id="inlineCheckbox3" value="ultimate">
+                <label class="form-check-label" for="inlineCheckbox3">Any</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+      </form>
+    </div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut iaculis ligula. Etiam fringilla eros id enim
-      tincidunt, vel finibus dolor facilisis. Phasellus arcu lectus, tristique id tempor eget, luctus vel elit.
-      Phasellus quis vulputate nisl. Duis eleifend, nulla at lacinia congue, odio diam hendrerit orci, sit amet semper
-      mi ligula
-      ultricies lectus. Sed et risus augue. Nulla facilisi. Donec lacus nibh, iaculis et mauris vitae, accumsan
-      venenatis
-      metus. Nam id ex odio. Ut justo ex, faucibus vitae consectetur et, mollis eu dolor. Praesent dolor leo,
-      condimentum
-      at mollis quis, accumsan at augue. Mauris sit amet turpis ligula. Sed venenatis orci vel tempus pharetra.
-      Praesent
-      ultricies, odio a semper ultricies, purus leo dapibus augue, sit amet pretium elit leo vel ligula.</p>
-
-    <p>Nulla efficitur interdum velit non dapibus. Aliquam gravida risus id enim ultricies condimentum a at ipsum. Sed
-      vel nulla felis. Nam tincidunt turpis ac arcu molestie commodo. Nunc convallis, diam et pellentesque rhoncus,
-      ligula
-      quam commodo leo, consequat eleifend nulla augue vel quam. Nunc volutpat, ex quis tincidunt semper, sem orci
-      mattis
-      arcu, at placerat purus sem a tellus. Nullam eu nisl a mi commodo suscipit. Nam dapibus, mi nec luctus pharetra,
-      dolor
-      tellus dapibus arcu, nec ornare lorem massa at erat. Vivamus lacinia ipsum ac ex commodo, sed consequat turpis
-      egestas.
-      Donec sagittis convallis maximus. Integer tempus risus est, eget tristique neque condimentum nec. Proin egestas
-      diam et
-      turpis mattis scelerisque. Suspendisse nulla ipsum, imperdiet non felis in, faucibus ultrices odio. Cras porta
-      risus id nibh laoreet maximus.</p>
-
-    <p>Mauris cursus, mi nec finibus congue, sem orci convallis leo, vel tempor nisl velit eu neque. Curabitur sed
-      malesuada
-      turpis. Quisque sit amet urna sed enim mattis facilisis congue quis libero. Nunc dui elit, efficitur sodales
-      sapien
-      faucibus, eleifend lacinia dolor. Morbi congue magna sit amet fermentum euismod. Aliquam tempor risus ligula, ac
-      ornare
-      purus commodo eget. In dui odio, gravida in auctor finibus, mollis a purus. Etiam pharetra mi ut lacus laoreet,
-      at
-      congue nisl elementum. Vivamus purus felis, tristique non est ac, tempor porta justo. Donec nisl nisi, vehicula a
-      eros
-      ac, mollis egestas odio. Phasellus ullamcorper cursus ante, sit amet fermentum orci ornare nec. Praesent egestas
-      eleifend ante sed efficitur.</p>
-
-    <p>Donec vitae nulla lacinia, finibus lacus eu, viverra eros. Vivamus nec ipsum at risus euismod commodo eu ac
-      libero.
-      Donec lobortis scelerisque auctor. Curabitur porta quam eget purus feugiat lacinia. Vivamus nec purus dolor.
-      Nulla
-      in
-      tempor risus, eget iaculis leo. Praesent aliquet convallis suscipit. Vestibulum ante ipsum primis in faucibus
-      orci
-      luctus et ultrices posuere cubilia Curae; Curabitur porta sodales sem at facilisis.</p>
   </div>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
