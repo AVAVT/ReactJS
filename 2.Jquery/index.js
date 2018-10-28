@@ -37,8 +37,10 @@ app.post("/", (req, res) => {
 });
 
 app.post("/checkUsernameAvailability", (req, res) => {
-  if (req.body.username == "admin") res.send("false");
-  else res.send("true");
+  setTimeout(() => {
+    if (req.body.username == "admin") res.send("false");
+    else res.send("true");
+  }, 1500);
 });
 
 app.listen(6969, err => {
