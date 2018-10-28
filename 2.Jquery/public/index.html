@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <title>Hello, Bootstrap!</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Awesome Club</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="text-center mt-5">New Member Registration</h1>
+    <div class="row">
+      <form id="register-form" method="POST" class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="username">Username <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="first-name">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="last-name">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="first-name">First Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="first-name" id="first-name" placeholder="First Name">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="last-name">Last Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <div><label>Membership Type <span class="text-danger">*</span></label></div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio1" value="standard">
+                <label class="form-check-label" for="inlineRadio1">Standard</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio2" value="medium">
+                <label class="form-check-label" for="inlineRadio2">Medium</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="membership-type" id="inlineRadio3" value="ultimate">
+                <label class="form-check-label" for="inlineRadio3">Ultimate</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <div><label>Prefered way to contact</label></div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="membership-type" id="inlineCheckbox1" value="standard">
+                <label class="form-check-label" for="inlineCheckbox1">Phone</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="membership-type" id="inlineCheckbox2" value="medium">
+                <label class="form-check-label" for="inlineCheckbox2">Email</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
