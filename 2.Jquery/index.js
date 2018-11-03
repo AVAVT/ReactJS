@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const fs = require('fs');
 const app = express();
+
+const dictionary = require('./dictionary.json');
 
 app.use((req, res, next) => {
   res.setHeader("X-Frame-Options", "ALLOWALL");
@@ -41,6 +43,34 @@ app.post("/checkUsernameAvailability", (req, res) => {
     if (req.body.username == "admin") res.send("false");
     else res.send("true");
   }, 1500);
+});
+
+app.get("/dictionary", (req, res) => {
+  res.sendFile(__dirname + '/public/dictionary.html');
+});
+
+app.get("/typeahead", (req, res) => {
+  setTimeout(() => {
+    var search = req.query.search.trim();
+
+    if (search) {
+      res.send({
+        search,
+        result: Object.keys(dictionary)
+          .filter(key => key.includes(search))
+          .splice(0, 10)
+      });
+    }
+    else res.send([]);
+  }, Math.random() * 250 + 100);
+});
+
+app.get("/lookup", (req, res) => {
+  var search = req.query.search.trim();
+  res.send({
+    search,
+    result: dictionary[search] || "No matching word found"
+  });
 });
 
 app.listen(6969, err => {
